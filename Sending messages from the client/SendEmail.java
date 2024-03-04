@@ -13,6 +13,7 @@ public class SendEmail {
     email.setAuthenticator(new DefaultAuthenticator(username, password));  
     email.setSSLOnConnect(true);  
 
+        
     try {  
         // Отправляем сообщение  
         email.send();  
