@@ -135,8 +135,6 @@ public class ButtonTextDisplay extends JFrame {
 // 		return refactoring_button;
 // 	}
     
-    
-
 // }
 
 
