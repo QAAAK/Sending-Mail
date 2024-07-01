@@ -17,7 +17,7 @@ public class SQLite {
 
 
         try {
-            String url = "jdbc:sqlite:C:\\Users\\santalovdv\\Desktop\\Java\\sample-database-sqlite-1\\Chinook.db";
+            String url = "jdbc:sqlite:C:\\sample-database-sqlite-1\\Chinook.db";
 
             conn = DriverManager.getConnection(url);
 
