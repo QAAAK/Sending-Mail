@@ -1,9 +1,12 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ButtonTextDisplay extends JFrame {
     private JTextField textField;
+    // public ArrayList<String> columns = new ArrayList<>();
 
     public ButtonTextDisplay() {
         super("App DataBase");
@@ -11,14 +14,15 @@ public class ButtonTextDisplay extends JFrame {
 
         JPanel panel = new JPanel();
 
-        textField = new JTextField(150);
+        textField = new JTextField(87);
+
         panel.add(textField);
 
         JButton button_select = new JButton("Выбрать");
         button_select.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                textField.setText(textField.getText() + " " + button_select.getText());
+                textField.setText(textField.getText() + "" + button_select.getText());
             }
         });
         panel.add(button_select);
@@ -28,9 +32,11 @@ public class ButtonTextDisplay extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String selectedItem = (String) comboBox.getSelectedItem();
+
                 if (selectedItem != null && selectedItem != "Выбрать поле из списка") {
-                    textField.setText(textField.getText() + " " + selectedItem);
+                    textField.setText(textField.getText() + " " + selectedItem );
                 }
+
             }
         });
         panel.add(comboBox);
@@ -62,7 +68,7 @@ public class ButtonTextDisplay extends JFrame {
         });
         panel.add(button_from_table);
 
-        JComboBox<String> comboBoxTable = new JComboBox<>(new String[]{"Выбрать таблицу из списка","analyt_mob", "cvm", "credists"});
+        JComboBox<String> comboBoxTable = new JComboBox<>(new String[]{"Выбрать таблицу из списка","Customer", "Album", ""});
         comboBoxTable.addActionListener(new ActionListener() { // 
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -78,13 +84,14 @@ public class ButtonTextDisplay extends JFrame {
         button_save.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
 
                 String textToSave = Query.getTextFieldText(textField);
 
                 System.out.println(Query.formatQuery(textToSave));
 
-                
+
+
+
             }
         });
         panel.add(button_save);
@@ -92,7 +99,7 @@ public class ButtonTextDisplay extends JFrame {
         add(panel);
         pack();
 
-        setSize(400, 350);
+        setSize(1000, 300);
         setLocationRelativeTo(null);
 
     }
@@ -135,28 +142,59 @@ public class ButtonTextDisplay extends JFrame {
 // 		return refactoring_button;
 // 	}
     
+    
+
 // }
 
 
 class Query extends JFrame{
+    
 
-    public static String getTextFieldText(JTextField textField) {
+     public static String getTextFieldText(JTextField textField) {
 
-    return textField.getText(); 
+     return textField.getText(); 
 
-    }
+     }
+    
+    
+    
+      public static String queryInDatabase (String query) {
+          
+      String[] items = query.split(" ");  
+      
+      ArrayList<String> columns = new ArrayList<>(Arrays.asList(items));
 
-    public static String formatQuery (String noRefactoringQuery) {
+      String targetQuery = String.join(",", columns);
+
+      String refreshTargetQuery = targetQuery.replace(",GROUP,", " GROUP BY ");
+      refreshTargetQuery = refreshTargetQuery.replace("ORDER,", " ORDER BY ");
+      refreshTargetQuery = refreshTargetQuery.replace("SELECT,", "SELECT ");
+      refreshTargetQuery = refreshTargetQuery.replace(", FROM,", " FROM ");
+      
+      
+        
+      return  refreshTargetQuery; 
+        
+      }
+
+      public static String formatQuery (String noRefactoringQuery) {
 
 
         String refactoringQuery = noRefactoringQuery.replace("Выбрать", "SELECT");
-        refactoringQuery = refactoringQuery.replace("Группировать по", "GROUP BY");
-        refactoringQuery = refactoringQuery.replace("Сортировать по", "ORDER BY");
+        refactoringQuery = refactoringQuery.replace("Группировать по", "GROUP");
+        refactoringQuery = refactoringQuery.replace("Сортировать по", "ORDER");
         refactoringQuery = refactoringQuery.replace("из таблицы", "FROM");
+        
+        refactoringQuery = Query.queryInDatabase(refactoringQuery);
 
         return refactoringQuery;
 
     }
+    
+    
+    
+  
+    
 
 
 	
