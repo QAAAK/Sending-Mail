@@ -4,6 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.sql.*;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+
 
 /**
  *
@@ -46,10 +48,10 @@ public class SQLite {
         ResultSetMetaData metaData = result.getMetaData();
 
         int columnsNumber = metaData.getColumnCount();
-        PrintWriter writer = new PrintWriter("C:\\Users\\santalovdv\\Desktop\\Р›РёСЃС‚ Microsoft Excel.csv");
+        PrintWriter writer = new PrintWriter("C:\\Users\\santalovdv\\Desktop\\Лист Microsoft Excel.csv");
 
         for (int i = 1; i <= columnsNumber; i++) {
-            writer.print(metaData.getColumnName(i)); // Р—Р°РїРёСЃС‹РІР°РµРј РЅР°РёРјРµРЅРѕРІР°РЅРёСЏ РєРѕР»РѕРЅРѕРє
+            writer.print(metaData.getColumnName(i)); // Записываем наименования колонок
             if (i < columnsNumber) {
                 writer.print(",");
             }
@@ -68,14 +70,53 @@ public class SQLite {
         writer.close();
     }
 
+    public static ArrayList allNamesTables (Connection conn) throws SQLException {
+
+        DatabaseMetaData metaData = conn.getMetaData();
+
+        ResultSet tables = metaData.getTables(null, null, "%", new String[]{"TABLE"});
+
+        ArrayList<String> AllTablesName = new ArrayList<>();
+        AllTablesName.add("Выберете таблицу из списка");
+
+        while (tables.next()) {
+            String tableName = tables.getString("TABLE_NAME");
+            AllTablesName.add(tableName);
+        }
+
+        return AllTablesName;
+    }
+
+
+    public static ArrayList allColumnsNameTable (Connection conn, String tableName) throws SQLException {
+
+        DatabaseMetaData metaData = conn.getMetaData();
+
+        // Укажите таблицу, для которой вы хотите получить столбцы
+
+        // Получите метаданные для столбцов таблицы
+        ResultSet columns = metaData.getColumns(null, null, tableName, null);
+
+        // Выведите наименования столбцов
+        while (columns.next()) {
+            String columnName = columns.getString("COLUMN_NAME");
+            System.out.println("Column Name: " + columnName);
+        }
+
+
+    }
+
+
+
+
 
 
 
     public static void main(String[] args) throws SQLException, FileNotFoundException, UnsupportedEncodingException {
 
+          System.out.println(allNamesTables(connect(conn)));
 
-
-        queryToCSV("SELECT * FROM Customer", connect(conn));
+//        queryToCSV("SELECT * FROM Customer", connect(conn));
 
     }
 }
