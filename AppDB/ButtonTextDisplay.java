@@ -43,8 +43,8 @@ public class ButtonTextDisplay extends JFrame {
 
                 String selectedTable = (String) comboBox.getSelectedItem();
 
-                if (selectedTable != null && !selectedTable.equals("Выберете таблицу из списка")) {
-                    textField.setText("Выбрать из таблицы " + selectedTable + " поле (поля) ");
+                if (selectedTable != null && !selectedTable.equals("Г‚Г»ГЎГҐГ°ГҐГІГҐ ГІГ ГЎГ«ГЁГ¶Гі ГЁГ§ Г±ГЇГЁГ±ГЄГ ")) {
+                    textField.setText("Г‚Г»ГЎГ°Г ГІГј ГЁГ§ ГІГ ГЎГ«ГЁГ¶Г» " + selectedTable + " ГЇГ®Г«ГҐ (ГЇГ®Г«Гї) ");
                     RefactoringQuery.getNameTable(selectedTable);
                     // Update columns combo box
                     try {
@@ -62,12 +62,12 @@ public class ButtonTextDisplay extends JFrame {
         panel.add(comboBox);
 
         // Column selection combo box
-        columnsComboBox = new JComboBox<>(new String[] {"Выберете поле из списка"});
+        columnsComboBox = new JComboBox<>(new String[] {"Г‚Г»ГЎГҐГ°ГҐГІГҐ ГЇГ®Г«ГҐ ГЁГ§ Г±ГЇГЁГ±ГЄГ "});
         columnsComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String selectedColumn = (String) columnsComboBox.getSelectedItem();
-                if (selectedColumn != null && !selectedColumn.equals("Выберете поле из списка")) {
+                if (selectedColumn != null && !selectedColumn.equals("Г‚Г»ГЎГҐГ°ГҐГІГҐ ГЇГ®Г«ГҐ ГЁГ§ Г±ГЇГЁГ±ГЄГ ")) {
                     // Update textField with column
                     textField.setText(textField.getText() + " " + selectedColumn);
                     RefactoringQuery.getColumnName(selectedColumn);
@@ -77,7 +77,7 @@ public class ButtonTextDisplay extends JFrame {
         panel.add(columnsComboBox);
 
 
-        buttonGroup = new JButton("Группировать полученные поля");
+        buttonGroup = new JButton("ГѓГ°ГіГЇГЇГЁГ°Г®ГўГ ГІГј ГЇГ®Г«ГіГ·ГҐГ­Г­Г»ГҐ ГЇГ®Г«Гї");
         buttonGroup.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -89,12 +89,12 @@ public class ButtonTextDisplay extends JFrame {
         });
         panel.add(buttonGroup);
 
-        columnsOrderComboBox = new JComboBox<>(new String[] {"Сортировать по"});
+        columnsOrderComboBox = new JComboBox<>(new String[] {"Г‘Г®Г°ГІГЁГ°Г®ГўГ ГІГј ГЇГ®"});
         columnsOrderComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String selectedColumnOrder = (String) columnsOrderComboBox.getSelectedItem();
-                if (selectedColumnOrder != null && !selectedColumnOrder.equals("Сортировать по")) {
+                if (selectedColumnOrder != null && !selectedColumnOrder.equals("Г‘Г®Г°ГІГЁГ°Г®ГўГ ГІГј ГЇГ®")) {
                     // Update textField with column
                     textField.setText(textField.getText() + " " + selectedColumnOrder);
 
@@ -104,7 +104,7 @@ public class ButtonTextDisplay extends JFrame {
         panel.add(columnsOrderComboBox);
 
 
-        buttonSave = new JButton("Сохранить");
+        buttonSave = new JButton("Г‘Г®ГµГ°Г Г­ГЁГІГј");
         buttonSave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -117,7 +117,7 @@ public class ButtonTextDisplay extends JFrame {
 
                         System.out.println(RefactoringQuery.resultQuery());
                         SQLite.queryToCSV(RefactoringQuery.resultQuery(), SQLite.connect(conn), saveLocation);
-                        textField.setText("Файл успешно сохранен. Пожалуйста, закройте приложение.");
+                        textField.setText("Г”Г Г©Г« ГіГ±ГЇГҐГёГ­Г® Г±Г®ГµГ°Г Г­ГҐГ­. ГЏГ®Г¦Г Г«ГіГ©Г±ГІГ , Г§Г ГЄГ°Г®Г©ГІГҐ ГЇГ°ГЁГ«Г®Г¦ГҐГ­ГЁГҐ.");
                     }
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
@@ -130,7 +130,7 @@ public class ButtonTextDisplay extends JFrame {
         });
         panel.add(buttonSave);
 
-        buttonAgain = new JButton("Заново");
+        buttonAgain = new JButton("Г‡Г Г­Г®ГўГ®");
         buttonAgain.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -141,8 +141,6 @@ public class ButtonTextDisplay extends JFrame {
             }
         });
         panel.add(buttonAgain);
-
-
 
         // Add panel to frame
         add(panel);
