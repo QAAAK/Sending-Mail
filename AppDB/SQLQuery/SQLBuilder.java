@@ -19,7 +19,7 @@ public class SQLBuilder extends Component {
 
 
         try {
-            String url = "jdbc:sqlite:C:\\Users\\santa\\Desktop\\Java\\sample-database-sqlite-1\\Chinook.db";
+            String url = "jdbc:sqlite:C:\\Users\\santalovdv\\Desktop\\Java\\sample-database-sqlite-1\\Chinook.db";
 
             Connection conn = DriverManager.getConnection(url);
 

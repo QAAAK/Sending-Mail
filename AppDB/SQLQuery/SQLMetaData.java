@@ -31,7 +31,7 @@ public class SQLMetaData {
         // Укажите таблицу, для которой вы хотите получить столбцы
 
         ArrayList<String> AllColumnsName = new ArrayList<>();
-        AllColumnsName.add("Выберете поле таблицы");
+        AllColumnsName.add("Выберете поле из таблицы");
 
 
         // Получите метаданные для столбцов таблицы
@@ -65,6 +65,10 @@ public class SQLMetaData {
             String columnName = columns.getString("COLUMN_NAME");
             AllColumnsName.add(columnName);
         }
+
+
+
+
 
         return AllColumnsName;
     }
