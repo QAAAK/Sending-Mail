@@ -35,8 +35,6 @@ public class AppDataBase extends JFrame {
         ImageIcon icon = new ImageIcon(getClass().getResource("logo.png"));
         setIconImage(icon.getImage());
 
-
-
         JPanel panel = new JPanel();
 
         SQLQuery sqlQuery = new SQLQuery();
@@ -75,8 +73,6 @@ public class AppDataBase extends JFrame {
                     textFieldTable.setText( textFieldTable.getText() + selectedTable);
 
                     sqlQuery.setTableName(selectedTable);
-
-
                     // Update columns combo box
                     try {
 
@@ -102,8 +98,6 @@ public class AppDataBase extends JFrame {
         columnsComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-
                 String selectedColumn = (String) columnsComboBox.getSelectedItem();
                 if (selectedColumn != null && !selectedColumn.equals("Выберете поле из таблицы")) {
 
@@ -122,9 +116,7 @@ public class AppDataBase extends JFrame {
         buttonGroup.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 textFieldGroup.setText(textFieldGroup.getText() + sqlQuery.getColumnName());
-
                 sqlQuery.setGroupBy(true);
 
             }
