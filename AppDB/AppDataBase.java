@@ -116,8 +116,6 @@ public class AppDataBase extends JFrame {
         });
         panel.add(columnsComboBox);
 
-//
-//
         buttonGroup = new JButton("Группировать полученные поля");
         buttonGroup.addActionListener(new ActionListener() {
             @Override
@@ -133,12 +131,11 @@ public class AppDataBase extends JFrame {
 
         });
         panel.add(buttonGroup);
-//
+        
         columnsOrderComboBox = new JComboBox<>(new String[] {"Выберете поле таблицы для сортировки"});
         columnsOrderComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
 
                 String selectedColumnOrder = (String) columnsOrderComboBox.getSelectedItem();
 
