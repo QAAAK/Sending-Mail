@@ -35,8 +35,6 @@ public class AppDataBase extends JFrame {
         ImageIcon icon = new ImageIcon(getClass().getResource("logo.png"));
         setIconImage(icon.getImage());
 
-
-
         JPanel panel = new JPanel();
 
         SQLQuery sqlQuery = new SQLQuery();
@@ -56,7 +54,6 @@ public class AppDataBase extends JFrame {
         textFieldOrder = new JTextField(90);
         textFieldOrder.setText("Сортировать по : ");
         panel.add(textFieldOrder);
-
 
 
         ArrayList<String> tableNameAsDB = SQLMetaData.allNamesTables(conn);
