@@ -12,8 +12,6 @@ public class PostgreSQL {
 
         try {
             Connection connection = DriverManager.getConnection(jdbcUrl, username, password);
-            // Now you can use 'connection' to execute SQL queries.
-            // Don't forget to close the connection when you're done.
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
