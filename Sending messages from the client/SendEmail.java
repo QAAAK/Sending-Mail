@@ -15,7 +15,7 @@ public class SendEmail {
 
         
     try {  
-        // Отправляем сообщение  
+    
         email.send();  
         System.out.println("Сообщение отправлено!");  
     } catch (Exception ex) {  
