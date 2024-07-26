@@ -73,8 +73,6 @@ public class AppDataBase extends JFrame {
 
                     sqlQuery.setTableName(selectedTable);
 
-
-                    // Update columns combo box
                     try {
 
                         ArrayList<String> columnNames = SQLMetaData.allColumnsNameTable(conn, selectedTable);
