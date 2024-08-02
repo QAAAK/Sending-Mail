@@ -59,7 +59,6 @@ public class AppDataBase extends JFrame {
         ArrayList<String> tableNameAsDB = SQLMetaData.allNamesTables(conn);
         String[] tableNameArray = tableNameAsDB.toArray(new String[0]);
 
-        // Table selection combo box
         comboBox = new JComboBox<>(tableNameArray);
         comboBox.addActionListener(new ActionListener() {
             @Override
@@ -80,7 +79,7 @@ public class AppDataBase extends JFrame {
 
                         String[] columnsArray = columnNames.toArray(new String[0]);
                         String[] columnsArrayOrder = columnNamesOrder.toArray(new String[0]);
-//
+
                         columnsComboBox.setModel(new DefaultComboBoxModel<>(columnsArray));
                         columnsOrderComboBox.setModel(new DefaultComboBoxModel<>(columnsArrayOrder));
 
