@@ -9,11 +9,6 @@ import java.sql.*;
 import java.io.PrintWriter;
 
 public class SQLBuilder extends Component {
-    /**
-     * Connect to a sample database
-     */
-
-
 
     public static Connection connect() {
 
