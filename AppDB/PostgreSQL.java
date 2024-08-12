@@ -4,7 +4,6 @@ import java.sql.SQLException;
 
 public class PostgreSQL {
 
-
     public static void main(String[] args) {
         String jdbcUrl = "jdbc:postgresql://gp_connection.ru:5432/core";
         String username = *****;
