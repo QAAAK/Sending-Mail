@@ -5,8 +5,9 @@ public class SendEmail {
     public static void main(String[] args) {  
         final String username = "your_username";  
         final String password = "your_password";
-    // Создаем сообщение электронной почты  
-    SimpleEmail email = new SimpleEmail();  
+
+    SimpleEmail email = new SimpleEmail(); 
+        
     email.setHostName("smtp.gmail.com");  
     email.addRecipient(toAddress);  
     email.setSmtpPort(465);  
@@ -15,7 +16,6 @@ public class SendEmail {
 
         
     try {  
-    
         email.send();  
         System.out.println("Сообщение отправлено!");  
     } catch (Exception ex) {  
