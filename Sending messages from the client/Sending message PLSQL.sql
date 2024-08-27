@@ -47,7 +47,6 @@ exception
 end copy_mailing_list;
 
 
-
 Procedure CHECK_CODES(P_MN_CODES VARCHAR2)
 AS
   l_invalid_col VARCHAR2(50);
