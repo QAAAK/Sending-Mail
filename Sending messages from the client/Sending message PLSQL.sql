@@ -1,5 +1,5 @@
 CREATE OR REPLACE PACKAGE BODY CORE.PKG$MN as
-/*  Автор: Пчёлкин С.
+/*  Автор: Санталов Д.
     Назначение: Для функций компонента Monitoring and Notification  */
   C_bVERSION CONSTANT NUMBER(10,2) := '20220411.18';
   C_MAIL_SENDER CONSTANT VARCHAR2(100) := 'oracle@FF-LINUX.com';
