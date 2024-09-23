@@ -1,4 +1,7 @@
 
+
+// Сортировка выбором. Разделяет массив на отсортированный и не отсортированный.
+
 class SelectionSort {
 
         public static void selectionSort(int[] array) {
