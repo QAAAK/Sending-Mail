@@ -6,9 +6,7 @@ import java.util.Arrays;
 class InsertingSort
 
 {
-  public static void insertingSort(int[] array)
-
-  {
+  public static void insertingSort(int[] array) {
     int j;
 
     for (int i = 0; i < array.length; i++) {
@@ -17,7 +15,6 @@ class InsertingSort
       for (j = i; j > 0 && swap < array[j - 1]; j--) {
         array[j] = array[j - 1];
       }
-
       array[j] = swap;
     }
   }
