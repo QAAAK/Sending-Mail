@@ -1,4 +1,4 @@
-public class PyramidSort {
+class PyramidSort {
 
 //вернуть левого потомка `A[i]`
 private static int LEFT(int i) {
