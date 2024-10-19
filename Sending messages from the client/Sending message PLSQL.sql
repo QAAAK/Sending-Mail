@@ -720,5 +720,5 @@ BEGIN
    RETURN l_last_date;
 END GET_LAST_TRG_DATE;
 end PKG$MN;
-/
+
 
